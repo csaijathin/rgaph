@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Adjusting Gantt charts interactively</title>
+    <link rel="stylesheet" href="/RGraph4_2014-09-14-stable/RGraph/css/website.css" type="text/css" media="screen" />
+
+    <script src="jquery-2.1.1.min.js"></script>
+    <script src="/RGraph4_2014-09-14-stable/RGraph/javascript/menuhints.js" ></script>
+    <script src="/RGraph4_2014-09-14-stable/RGraph/libraries/RGraph.common.core.js" ></script>
+
+
+</head>
+<body>
+
+<canvas id="cvs" width="600" height="250">[No canvas support]</canvas>
+
+<script src="/RGraph4_2014-09-14-stable/RGraph/libraries/RGraph.gantt.js" ></script>
+
+<script>
+    window.onload = function () {
+
+        gantt_events = [
+            [31, 28, null, 'Richard'],
+            [0, 120, null, 'Bob'],
+            [84, 16, null, 'Fred'],
+            [35, 45, null, 'Charles'],
+            [0, 35, null, 'Kev']
+        ];
+        var gantt = new RGraph.Gantt({
+            id: 'cvs',
+            data: gantt_events,
+            options: {
+                xmax: 120,
+                defaultcolor: '#0c0',
+                labels: ['January', 'February', 'March', 'April'],
+                borders: true,
+                adjustable: true
+            }
+        }).draw();
+    }
+</script>
+
+</body>
+</html>
